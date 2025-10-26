@@ -1,6 +1,6 @@
 # 📋 Gerenciador de Lista de Pessoas
 
-[![GitHub Pages](https://img.shields.io/badge/🌐-Site%20Online-blue?style=for-the-badge)]([https://leandrostanger.github.io/GerenciadorDeLista/)
+[![GitHub Pages](https://img.shields.io/badge/🌐-Site%20Online-blue?style=for-the-badge)](https://leandrostanger.github.io/GerenciadorDeLista/)
 [![GitHub](https://img.shields.io/badge/📂-Repositório-black?style=for-the-badge)](https://github.com/LeandroStanger/GerenciadorDeLista)
 
 Um aplicativo web moderno para gerenciamento de listas de pessoas, desenvolvido com HTML, CSS e JavaScript.
