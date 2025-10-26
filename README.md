@@ -49,10 +49,11 @@ npx http-server
 
 ```
 GerenciadorDeLista/
+├── LICENSE             # licença
 ├── index.html          # Arquivo principal
 ├── style.css           # Estilos da aplicação
 ├── script.js           # Lógica JavaScript
-└── README.md          # Documentação
+└── README.md           # Documentação
 ```
 
 ## 💡 Casos de Uso
