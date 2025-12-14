@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Lista</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -16,21 +18,30 @@
         <div class="form-container">
             <h2>Adicionar Novo Registro</h2>
             <div class="input-group">
-                <input type="text" id="nome" placeholder="Nome">
-                <input type="email" id="email" placeholder="E-mail">
-                <input type="number" id="idade" placeholder="Idade">
-                <input type="text" id="cidade" placeholder="Cidade">
-                <input type="tel" id="telefone" placeholder="Telefone">
+                <input type="text" id="nome" placeholder="Nome completo" required>
+                <input type="email" id="email" placeholder="E-mail válido" required>
+                <input type="number" id="idade" placeholder="Idade" min="0" max="120" required>
+                <input type="tel" id="telefone" placeholder="Telefone (com DDD)" required>
+                <select id="estados" name="estados" required>
+                    <option value="">Carregando estados...</option>
+                </select>
+                <select id="cidades" disabled required>
+                    <option value="">Selecione um estado primeiro</option>
+                </select>
             </div>
-            <button id="addBtn">Adicionar</button>
+            <button id="addBtn">Adicionar Registro</button>
         </div>
 
         <div class="lista-container">
             <h2>Lista de Registros</h2>
-            <div id="saida" class="lista"></div>
+            <div id="saida" class="lista">
+                <!-- Os registros serão carregados aqui via JavaScript -->
+                <div class="sem-registros">Nenhum registro cadastrado ainda. Adicione o primeiro!</div>
+            </div>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
