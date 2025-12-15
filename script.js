@@ -85,7 +85,7 @@
                 
                 let detalhes = document.createElement('div');
                 detalhes.className = 'registro-detalhes';
-                detalhes.textContent = `📧 ${registro.email} | 🎂 ${registro.idade} anos | 📍 ${registro.estado} - ${registro.cidade} | 📞 ${registro.telefone}`;
+                detalhes.textContent = `📧 ${registro.email} | 🎂 ${registro.idade} anos | 👫 ${registro.genero} | 👩‍❤️‍💋‍👨 ${registro.relacionamento} | 📍 ${registro.estado} - ${registro.cidade} | 📞 ${registro.telefone}`;
                 
                 divInfo.appendChild(nome);
                 divInfo.appendChild(detalhes);
@@ -121,6 +121,8 @@
             document.getElementById('nome').value = registro.nome;
             document.getElementById('email').value = registro.email;
             document.getElementById('idade').value = registro.idade;
+            document.getElementById('genero').value = registro.genero;
+            document.getElementById('relacionamento').value = registro.relacionamento;
             document.getElementById('telefone').value = registro.telefone;
             
             if (registro.estado) {
@@ -160,6 +162,8 @@
             let nome = document.getElementById('nome').value.trim();
             let email = document.getElementById('email').value.trim();
             let idade = document.getElementById('idade').value.trim();
+            let genero = document.getElementById('genero').value;
+            let relacionamento = document.getElementById('relacionamento').value;
             let telefone = document.getElementById('telefone').value.trim();
             let estadoSelect = document.getElementById('estados');
             let cidadeSelect = document.getElementById('cidades');
@@ -167,7 +171,7 @@
             let estado = estadoSelect.value;
             let cidade = cidadeSelect.value;
             
-            if (!nome || !email || !idade || !telefone || !estado || !cidade) {
+            if (!nome || !email || !idade || !genero || !relacionamento || !telefone || !estado || !cidade) {
                 alert('⚠️ Por favor, preencha todos os campos!');
                 return;
             }
@@ -181,6 +185,8 @@
                 nome: nome,
                 email: email,
                 idade: idade,
+                genero: genero,
+                relacionamento: relacionamento,
                 estado: estado,
                 cidade: cidade,
                 telefone: telefone,
@@ -206,6 +212,8 @@
             document.getElementById('nome').value = '';
             document.getElementById('email').value = '';
             document.getElementById('idade').value = '';
+            document.getElementById('genero').value = '';
+            document.getElementById('relacionamento').value = '';
             document.getElementById('telefone').value = '';
             document.getElementById('estados').selectedIndex = 0;
             document.getElementById('cidades').innerHTML = '<option value="">Selecione um estado primeiro</option>';
