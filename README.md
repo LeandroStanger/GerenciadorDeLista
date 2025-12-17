@@ -1,24 +1,38 @@
-# Gerenciador de Lista - v2
+# Gerenciador de Lista - v2.5
 
-Uma aplicação web moderna para gerenciamento de listas, permitindo adicionar, editar e remover registros com uma interface intuitiva.
+Uma aplicação web moderna para gerenciamento de registros com endereço completo, permitindo adicionar, editar e remover registros com uma interface intuitiva.
 
 **Acesso Online:** [https://leandrostanger.github.io/GerenciadorDeLista/](https://leandrostanger.github.io/GerenciadorDeLista/)
 
-## ✨ Funcionalidades
+## ✨ Novas Funcionalidades (v2.5)
 
-- **Adição de Registros**: Insira novos itens na lista através de um formulário simples
+- **Endereço Completo**: Campos para CEP, logradouro (rua), bairro, complemento
+- **Busca Automática por CEP**: Integração com API ViaCEP para preenchimento automático
+- **Formatação de CEP**: Máscara automática (99999-999)
+- **Sincronização IBGE/ViaCEP**: Estados e cidades sincronizados com dados do CEP
+- **Exibição Aprimorada**: Seção dedicada para endereço nos registros
+
+## 🛠️ Funcionalidades Existentes
+
+- **Adição de Registros**: Insira novos itens na lista através de um formulário completo
 - **Edição em Tempo Real**: Modifique registros existentes diretamente na lista
 - **Exclusão de Itens**: Remova registros individualmente com confirmação
 - **Interface Responsiva**: Design adaptável para diferentes tamanhos de tela
 - **Armazenamento Local**: Os dados são persistidos no navegador do usuário
 - **Feedback Visual**: Notificações visuais para ações realizadas
+- **Integração com IBGE**: Listas de estados e cidades do Brasil atualizadas
+
+## 🗺️ APIs Utilizadas
+
+- **ViaCEP API**: Para busca de endereços por CEP (gratuita)
+- **IBGE API**: Para listas de estados e cidades brasileiras
+- **Local Storage API**: Para persistência de dados no navegador
 
 ## 🛠️ Tecnologias Utilizadas
 
 - **HTML5**: Estrutura semântica da aplicação
 - **CSS3**: Estilização moderna com Flexbox/Grid
 - **JavaScript (ES6+)**: Lógica de interação e manipulação de dados
-- **Local Storage API**: Persistência de dados no navegador
 - **GitHub Pages**: Hospedagem estática
 
 ## 📦 Instalação e Execução Local
@@ -35,15 +49,9 @@ Uma aplicação web moderna para gerenciamento de listas, permitindo adicionar, 
    cd GerenciadorDeLista
    ```
 
-2. **Acesse a branch v2**
-   ```bash
-   git checkout v2
-   ```
-
-3. **Abra o arquivo principal**
-   - Navegue até a pasta do projeto
-   - Abra o arquivo `index.html` em seu navegador
-   - Ou utilize um servidor local como:
+2. **Execute a aplicação**
+   - Abra o arquivo `index.html` diretamente no navegador
+   - Ou utilize um servidor local:
      ```bash
      # Com Python
      python -m http.server 8000
@@ -58,31 +66,31 @@ Uma aplicação web moderna para gerenciamento de listas, permitindo adicionar, 
 GerenciadorDeLista/
 ├── index.html          # Página principal da aplicação
 ├── style.css           # Estilos principais
-├── script.js           # Lógica da aplicação
-├── assets/             # Recursos estáticos (imagens, ícones)
-│   ├── images/
-│   └── icons/
+├── script.js           # Lógica da aplicação (IBGE + ViaCEP)
 ├── README.md           # Este arquivo
-└── .gitignore          # Arquivos ignorados pelo Git
+└── (assets/)           # Recursos estáticos (se houver)
 ```
 
 ## 🚀 Como Usar
 
-1. **Adicionar um novo registro**:
-   - Digite o texto no campo "Adicionar Novo Registro"
-   - Clique no botão "Adicionar" ou pressione Enter
+### 1. Adicionar um novo registro:
+   - Preencha todos os campos do formulário
+   - Para endereço, digite o CEP e os demais campos serão preenchidos automaticamente
+   - Clique em "Adicionar Registro" ou pressione Enter
 
-2. **Editar um registro existente**:
-   - Clique no ícone de edição ao lado do item
-   - Modifique o texto diretamente
-   - Salve as alterações
+### 2. Busca automática por CEP:
+   - Digite um CEP válido (ex: 01001-000) no campo CEP
+   - Mude para outro campo (perca o foco) ou aguarde
+   - Os campos de rua, bairro, cidade e estado serão preenchidos automaticamente
 
-3. **Remover um registro**:
-   - Clique no ícone de exclusão ao lado do item
+### 3. Editar um registro existente:
+   - Clique no botão "✏️ Editar" ao lado do registro
+   - Modifique os dados no formulário
+   - Clique em "Atualizar Registro"
+
+### 4. Remover um registro:
+   - Clique no botão "🗑️ Remover" ao lado do item
    - Confirme a ação se solicitado
-
-4. **Filtrar registros** (se disponível):
-   - Use o campo de busca para encontrar itens específicos
 
 ## 🔧 Desenvolvimento
 
@@ -94,11 +102,18 @@ Para modificar a aplicação:
 2. **Comportamento**: Modifique `script.js` para adicionar novas funcionalidades
 3. **Estrutura**: Ajuste `index.html` para mudar a organização dos elementos
 
-### Recursos Adicionais
+### Recursos Adicionais Sugeridos
 
-- **Ícones**: Considere usar Font Awesome ou Material Icons
-- **Animações**: Adicione transições CSS para melhorar a experiência
-- **Validação**: Implemente validação de entrada no formulário
+- **Validação Avançada**: Implementar validação em tempo real nos campos
+- **Busca/Filtro**: Adicionar funcionalidade de busca na lista de registros
+- **Exportação**: Permitir exportar registros para CSV ou PDF
+- **Backup**: Sistema de backup dos dados no LocalStorage
+
+## ⚠️ Limitações Conhecidas
+
+1. **Dependência de Internet**: Requer conexão para carregar estados/cidades e buscar CEPs
+2. **ViaCEP Limitações**: Alguns CEPs novos ou rurais podem não retornar dados completos
+3. **IBGE Sincronização**: A sincronização entre ViaCEP e IBGE pode falhar para cidades com nomes diferentes
 
 ## 📄 Licença
 
@@ -119,3 +134,4 @@ Para suporte, reporte issues no [GitHub Issues](https://github.com/LeandroStange
 ---
 
 Desenvolvido por [Leandro Stanger](https://github.com/LeandroStanger)
+```
