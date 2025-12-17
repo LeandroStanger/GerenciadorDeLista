@@ -1,4 +1,4 @@
-# Gerenciador de Lista - v2.5
+# Gerenciador de Lista - v2.6
 
 Uma aplicação web moderna para gerenciamento de registros com endereço completo, permitindo adicionar, editar e remover registros com uma interface intuitiva.
 

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Lista - Com Endereço</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <header>
-            <h1>Gerenciador de Lista - v2.5</h1>
+            <h1>Gerenciador de Lista - v2.6</h1>
             <p>Gerencie registros com endereço completo (CEP, rua, bairro)</p>
         </header>
 
@@ -20,7 +22,7 @@
                 <input type="text" id="nome" placeholder="Nome completo" required>
                 <input type="email" id="email" placeholder="E-mail válido" required>
                 <input type="number" id="idade" placeholder="Idade" min="0" max="120" required>
-                
+
                 <!-- Gênero e Relacionamento -->
                 <select id="genero" required>
                     <option value="">Gênero</option>
@@ -42,10 +44,10 @@
                     <option value="Viúvo(a)">Viúvo(a)</option>
                 </select>
                 <input type="tel" id="telefone" placeholder="Telefone (com DDD)" required>
-                
+
                 <!-- Endereço - Parte 1: CEP -->
                 <input type="text" id="cep" placeholder="CEP (Digite 8 números)" maxlength="9" required>
-                
+
                 <!-- Endereço - Parte 2: Estado e Cidade -->
                 <select id="estados" required>
                     <option value="">Carregando estados...</option>
@@ -53,11 +55,12 @@
                 <select id="cidades" disabled required>
                     <option value="">Selecione um estado primeiro</option>
                 </select>
-                
+
                 <!-- Endereço - Parte 3: Rua e Bairro -->
                 <input type="text" id="logradouro" placeholder="Logradouro (Rua/Av.)" required>
+                <input type="number" id="numberHome" placeholder="N°" required>
                 <input type="text" id="bairro" placeholder="Bairro" required>
-                
+
                 <!-- Complemento (opcional) -->
                 <input type="text" id="complemento" placeholder="Complemento (opcional)">
             </div>
@@ -75,4 +78,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -190,7 +190,7 @@ function atualizarLista() {
         
         let enderecoDetalhes = document.createElement('div');
         enderecoDetalhes.className = 'registro-detalhes';
-        enderecoDetalhes.textContent = `${registro.logradouro}, ${registro.bairro}`;
+        enderecoDetalhes.textContent = `${registro.logradouro} - N°: ${registro.numberHome}, ${registro.bairro}`;
         
         let enderecoCidade = document.createElement('div');
         enderecoCidade.className = 'registro-detalhes';
@@ -265,6 +265,7 @@ function editarRegistro(index) {
     // Preencher campos de endereço
     document.getElementById('cep').value = registro.cep;
     document.getElementById('logradouro').value = registro.logradouro;
+    document.getElementById('numberHome').value = registro.numberHome;
     document.getElementById('bairro').value = registro.bairro;
     document.getElementById('complemento').value = registro.complemento || '';
 
@@ -322,12 +323,13 @@ function salvarRegistro() {
     let estado = document.getElementById('estados').value;
     let cidade = document.getElementById('cidades').value;
     let logradouro = document.getElementById('logradouro').value.trim();
+    let numberHome = document.getElementById('numberHome').value.trim();
     let bairro = document.getElementById('bairro').value.trim();
     let complemento = document.getElementById('complemento').value.trim();
 
     // Validações
     if (!nome || !email || !idade || !genero || !relacionamento || !telefone || 
-        !cep || !estado || !cidade || !logradouro || !bairro) {
+        !cep || !estado || !cidade || !logradouro || !numberHome || !bairro) {
         alert('⚠️ Por favor, preencha todos os campos obrigatórios!');
         return;
     }
@@ -356,6 +358,7 @@ function salvarRegistro() {
         estado: estado,
         cidade: cidade,
         logradouro: logradouro,
+        numberHome: numberHome,
         bairro: bairro,
         complemento: complemento,
         dataCadastro: new Date().toLocaleString('pt-BR')
@@ -391,6 +394,7 @@ function limparFormulario() {
     document.getElementById('cidades').innerHTML = '<option value="">Selecione um estado primeiro</option>';
     document.getElementById('cidades').disabled = true;
     document.getElementById('logradouro').value = '';
+    document.getElementById('numberHome').value = '';
     document.getElementById('bairro').value = '';
     document.getElementById('complemento').value = '';
     
