@@ -118,6 +118,15 @@ header p {
     justify-content: center;
 }
 
+#complemento {
+    width: 1340px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 /* ========== GRUPO DE INPUTS ========== */
 .input-group {
     display: grid;
@@ -137,7 +146,8 @@ header p {
 }
 
 /* ========== INPUTS E SELECTS ========== */
-input, select {
+input,
+select {
     width: 100%;
     padding: 15px 18px;
     border: 2px solid var(--cor-borda);
@@ -150,7 +160,8 @@ input, select {
     position: relative;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
     outline: none;
     border-color: var(--cor-primaria);
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
@@ -162,7 +173,8 @@ input::placeholder {
     opacity: 0.7;
 }
 
-input:required, select:required {
+input:required,
+select:required {
     border-left: 4px solid var(--cor-primaria);
     padding-left: 14px;
 }
@@ -548,7 +560,8 @@ input:valid:not(:placeholder-shown):not(:focus) {
     min-width: 150px;
 }
 
-.btn-editar, .btn-remover {
+.btn-editar,
+.btn-remover {
     padding: 12px 20px;
     border: none;
     border-radius: var(--raio-borda);
@@ -626,6 +639,7 @@ input:valid:not(:placeholder-shown):not(:focus) {
         opacity: 0;
         transform: translateY(15px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -637,6 +651,7 @@ input:valid:not(:placeholder-shown):not(:focus) {
         transform: translateX(100%);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
@@ -648,6 +663,7 @@ input:valid:not(:placeholder-shown):not(:focus) {
         transform: translateX(0);
         opacity: 1;
     }
+
     to {
         transform: translateX(100%);
         opacity: 0;
@@ -655,15 +671,31 @@ input:valid:not(:placeholder-shown):not(:focus) {
 }
 
 @keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.7; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes pulse-search {
-    0% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(52, 152, 219, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+    }
 }
 
 @keyframes spin {
@@ -673,8 +705,13 @@ input:valid:not(:placeholder-shown):not(:focus) {
 }
 
 @keyframes highlightNew {
-    0% { background-color: #d4edda; }
-    100% { background-color: white; }
+    0% {
+        background-color: #d4edda;
+    }
+
+    100% {
+        background-color: white;
+    }
 }
 
 @keyframes ripple {
@@ -682,6 +719,7 @@ input:valid:not(:placeholder-shown):not(:focus) {
         transform: scale(0, 0);
         opacity: 0.5;
     }
+
     100% {
         transform: scale(20, 20);
         opacity: 0;
@@ -758,7 +796,8 @@ input:valid:not(:placeholder-shown):not(:focus) {
 }
 
 /* ========== ESTADOS DISABLED ========== */
-select:disabled, input:disabled {
+select:disabled,
+input:disabled {
     background-color: var(--cor-fundo-claro) !important;
     color: var(--cor-texto-claro) !important;
     cursor: not-allowed !important;
@@ -853,27 +892,27 @@ select:disabled, input:disabled {
     header h1 {
         font-size: 2.4rem;
     }
-    
+
     .input-group {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
-    
+
     .registro {
         flex-direction: column;
         align-items: stretch;
         gap: 25px;
     }
-    
+
     .registro-info {
         padding-right: 0;
     }
-    
+
     .registro-acoes {
         flex-direction: row;
         justify-content: flex-end;
         min-width: 100%;
     }
-    
+
     .btn-exportar {
         position: static;
         margin-bottom: 20px;
@@ -886,64 +925,68 @@ select:disabled, input:disabled {
     body {
         padding: 10px;
     }
-    
+
     header {
         padding: 30px 20px;
     }
-    
+
     header h1 {
         font-size: 2rem;
     }
-    
-    .form-container, .lista-container {
+
+    .form-container,
+    .lista-container {
         padding: 30px 20px;
     }
-    
-    .form-container h2, .lista-container h2 {
+
+    .form-container h2,
+    .lista-container h2 {
         font-size: 1.6rem;
     }
-    
+
     .input-group {
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    
+
     .barra-busca-container {
         padding: 20px;
     }
-    
+
     .filtros-busca {
         flex-direction: column;
         align-items: stretch;
         gap: 12px;
     }
-    
+
     #filtroTipo {
         width: 100%;
         min-width: auto;
     }
-    
+
     .btn-filtro {
         width: 100%;
         justify-content: center;
     }
-    
+
     .contador-resultados {
         margin-left: 0;
         text-align: center;
         width: 100%;
         justify-content: center;
     }
-    
+
     .registro-acoes {
         flex-direction: column;
     }
-    
-    .btn-editar, .btn-remover {
+
+    .btn-editar,
+    .btn-remover {
         width: 100%;
     }
-    
-    .btn-limpar, #addBtn {
+
+    .btn-limpar,
+    #addBtn {
         max-width: 100%;
     }
 }
@@ -952,36 +995,39 @@ select:disabled, input:disabled {
     header {
         padding: 25px 15px;
     }
-    
+
     header h1 {
         font-size: 1.8rem;
     }
-    
+
     header p {
         font-size: 1rem;
     }
-    
-    .form-container, .lista-container {
+
+    .form-container,
+    .lista-container {
         padding: 25px 15px;
     }
-    
-    input, select {
+
+    input,
+    select {
         padding: 14px 16px;
     }
-    
-    #addBtn, .btn-limpar {
+
+    #addBtn,
+    .btn-limpar {
         padding: 14px 24px;
         font-size: 1rem;
     }
-    
+
     .registro {
         padding: 20px;
     }
-    
+
     .registro-nome {
         font-size: 1.2rem;
     }
-    
+
     .notificacao {
         top: 15px;
         right: 15px;
@@ -1001,36 +1047,37 @@ select:disabled, input:disabled {
         --cor-fundo-claro: #2c3e50;
         --cor-fundo-escuro: #1a252f;
     }
-    
+
     body {
         background: linear-gradient(135deg, #0f0c29 0%, #302b63 100%);
     }
-    
+
     .container {
         background: #2c3e50;
         color: var(--cor-texto);
     }
-    
-    input, select {
+
+    input,
+    select {
         background: #34495e;
         color: var(--cor-texto);
         border-color: #4a6572;
     }
-    
+
     .barra-busca-container {
         background: var(--cor-fundo-escuro);
         border-color: #34495e;
     }
-    
+
     .registro {
         background: #34495e;
         border-color: #4a6572;
     }
-    
+
     .registro-endereco {
         background: rgba(52, 73, 94, 0.5);
     }
-    
+
     .sem-registros {
         background: var(--cor-fundo-escuro);
         border-color: #4a6572;
@@ -1043,31 +1090,34 @@ select:disabled, input:disabled {
         background: white !important;
         padding: 0;
     }
-    
+
     .container {
         box-shadow: none !important;
         max-width: 100% !important;
     }
-    
+
     header {
         color: black !important;
         background: white !important;
         padding: 20px !important;
         border-bottom: 2px solid black !important;
     }
-    
+
     .form-container {
         display: none !important;
     }
-    
+
     .barra-busca-container {
         display: none !important;
     }
-    
-    .btn-exportar, .btn-limpar, .btn-editar, .btn-remover {
+
+    .btn-exportar,
+    .btn-limpar,
+    .btn-editar,
+    .btn-remover {
         display: none !important;
     }
-    
+
     .registro {
         break-inside: avoid;
         box-shadow: none !important;
@@ -1088,15 +1138,17 @@ select:disabled, input:disabled {
         --cor-texto-claro: #000000;
         --cor-borda: #000000;
     }
-    
+
     * {
         outline: 1px solid transparent;
     }
-    
-    input, select, button {
+
+    input,
+    select,
+    button {
         border: 2px solid black !important;
     }
-    
+
     .registro {
         border: 2px solid black !important;
     }
