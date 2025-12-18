@@ -1037,43 +1037,6 @@ input:disabled {
     }
 }
 
-
-    body {
-        background: linear-gradient(135deg, #0f0c29 0%, #302b63 100%);
-    }
-
-    .container {
-        background: #2c3e50;
-        color: var(--cor-texto);
-    }
-
-    input,
-    select {
-        background: #34495e;
-        color: var(--cor-texto);
-        border-color: #4a6572;
-    }
-
-    .barra-busca-container {
-        background: var(--cor-fundo-escuro);
-        border-color: #34495e;
-    }
-
-    .registro {
-        background: #34495e;
-        border-color: #4a6572;
-    }
-
-    .registro-endereco {
-        background: rgba(52, 73, 94, 0.5);
-    }
-
-    .sem-registros {
-        background: var(--cor-fundo-escuro);
-        border-color: #4a6572;
-    }
-}
-
 /* ========== ESTILOS PARA PRINT ========== */
 @media print {
     body {
