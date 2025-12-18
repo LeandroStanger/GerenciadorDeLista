@@ -4,74 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciador de Lista - Com Endereço</title>
+    <title>Gerenciador de Registros - v3</title>
+    <meta name="description" content="Sistema para gerenciamento de registros com busca avançada e integração com APIs">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <h1>Gerenciador de Lista - v2.6</h1>
-            <p>Gerencie registros com endereço completo (CEP, rua, bairro)</p>
+            <h1>Gerenciador de Registros - v3</h1>
+            <p>Gerencie registros com busca avançada, validações e segurança</p>
         </header>
 
         <div class="form-container">
-            <h2>Adicionar Novo Registro</h2>
-            <div class="input-group">
-                <!-- Dados Pessoais -->
-                <input type="text" id="nome" placeholder="Nome completo" required>
-                <input type="email" id="email" placeholder="E-mail válido" required>
-                <input type="number" id="idade" placeholder="Idade" min="0" max="120" required>
+            <h2>Novo Registro</h2>
+            <form id="formRegistro" onsubmit="return false;">
+                <div class="input-group">
+                    <!-- Dados Pessoais -->
+                    <input type="text" id="nome" placeholder="Nome completo *" aria-label="Nome completo"
+                        aria-required="true" required>
 
-                <!-- Gênero e Relacionamento -->
-                <select id="genero" required>
-                    <option value="">Gênero</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
-                </select>
-                <select id="relacionamento" required>
-                    <option value="">Relacionamento</option>
-                    <option value="Solteiro(a)">Solteiro(a)</option>
-                    <option value="Em um relacionamento">Em um relacionamento</option>
-                    <option value="Noivo(a)">Noivo(a)</option>
-                    <option value="Casado(a)">Casado(a)</option>
-                    <option value="Em uma união estável">Em uma união estável</option>
-                    <option value="Morando junto">Morando junto</option>
-                    <option value="Em um relacionamento aberto">Em um relacionamento aberto</option>
-                    <option value="Em um relacionamento complicado">Em um relacionamento complicado</option>
-                    <option value="Separado(a)">Separado(a)</option>
-                    <option value="Divorciado(a)">Divorciado(a)</option>
-                    <option value="Viúvo(a)">Viúvo(a)</option>
-                </select>
-                <input type="tel" id="telefone" placeholder="Telefone (com DDD)" required>
+                    <input type="email" id="email" placeholder="E-mail válido *" aria-label="Endereço de e-mail"
+                        aria-required="true" required>
 
-                <!-- Endereço - Parte 1: CEP -->
-                <input type="text" id="cep" placeholder="CEP (Digite 8 números)" maxlength="9" required>
+                    <input type="number" id="idade" placeholder="Idade (0-120) *" min="0" max="120" aria-label="Idade"
+                        aria-required="true" required>
 
-                <!-- Endereço - Parte 2: Estado e Cidade -->
-                <select id="estados" required>
-                    <option value="">Carregando estados...</option>
-                </select>
-                <select id="cidades" disabled required>
-                    <option value="">Selecione um estado primeiro</option>
-                </select>
+                    <!-- Gênero e Relacionamento -->
+                    <select id="genero" aria-label="Gênero" aria-required="true" required>
+                        <option value="">Selecione o gênero *</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Não-binário">Não-binário</option>
+                        <option value="Prefiro não informar">Prefiro não informar</option>
+                    </select>
 
-                <!-- Endereço - Parte 3: Rua e Bairro -->
-                <input type="text" id="logradouro" placeholder="Logradouro (Rua/Av.)" required>
-                <input type="number" id="numberHome" placeholder="N°" required>
-                <input type="text" id="bairro" placeholder="Bairro" required>
+                    <select id="relacionamento" aria-label="Status de relacionamento" aria-required="true" required>
+                        <option value="">Status de relacionamento *</option>
+                        <option value="Solteiro(a)">Solteiro(a)</option>
+                        <option value="Em um relacionamento">Em um relacionamento</option>
+                        <option value="Noivo(a)">Noivo(a)</option>
+                        <option value="Casado(a)">Casado(a)</option>
+                        <option value="Em uma união estável">Em uma união estável</option>
+                        <option value="Morando junto">Morando junto</option>
+                        <option value="Separado(a)">Separado(a)</option>
+                        <option value="Divorciado(a)">Divorciado(a)</option>
+                        <option value="Viúvo(a)">Viúvo(a)</option>
+                    </select>
 
-                <!-- Complemento (opcional) -->
-                <input type="text" id="complemento" placeholder="Complemento (opcional)">
-            </div>
-            <button id="addBtn">Adicionar Registro</button>
+                    <input type="tel" id="telefone" placeholder="Telefone (DDD) 9XXXX-XXXX *"
+                        aria-label="Número de telefone" aria-required="true" required title="Formato: (99) 99999-9999">
+
+                    <!-- Endereço -->
+                    <input type="text" id="cep" placeholder="CEP (99999-999) *" maxlength="9" aria-label="CEP"
+                        aria-required="true" required title="Digite o CEP para buscar o endereço automaticamente">
+
+                    <select id="estados" aria-label="Estado" aria-required="true" required>
+                        <option value="">Carregando estados...</option>
+                    </select>
+
+                    <select id="cidades" disabled aria-label="Cidade" aria-required="true" required>
+                        <option value="">Selecione um estado primeiro</option>
+                    </select>
+
+                    <input type="text" id="bairro" placeholder="Bairro *" aria-label="Bairro" aria-required="true"
+                        required>
+
+
+                    <input type="text" id="logradouro" placeholder="Logradouro (Rua/Av.) *" aria-label="Logradouro"
+                        aria-required="true" required>
+
+                    <input type="number" id="numberHome" placeholder="Número *" min="1"
+                        aria-label="Número da residência" aria-required="true" required>
+
+                    <textarea id="complemento" name="complemento" required placeholder=" Complemento (opcional)"
+                        rows="5"></textarea>
+                </div>
+
+                <button type="button" id="addBtn">Adicionar Registro</button>
+            </form>
         </div>
 
         <div class="lista-container">
-            <h2>Lista de Registros</h2>
-            <div id="saida" class="lista">
-                <!-- Os registros serão carregados aqui via JavaScript -->
-                <div class="sem-registros">Nenhum registro cadastrado ainda. Adicione o primeiro!</div>
+            <h2>Registros Cadastrados</h2>
+            <!-- A barra de busca será inserida aqui via JavaScript -->
+            <div id="saida" class="lista" role="region" aria-label="Lista de registros">
+                <div class="sem-registros" role="alert">
+                    Nenhum registro cadastrado ainda. Adicione o primeiro!
+                </div>
             </div>
         </div>
     </div>
