@@ -1037,16 +1037,6 @@ input:disabled {
     }
 }
 
-/* ========== MODO ESCURO (OPCIONAL) ========== */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --cor-texto: #ecf0f1;
-        --cor-texto-claro: #bdc3c7;
-        --cor-borda: #34495e;
-        --cor-fundo: #1a1a2e;
-        --cor-fundo-claro: #2c3e50;
-        --cor-fundo-escuro: #1a252f;
-    }
 
     body {
         background: linear-gradient(135deg, #0f0c29 0%, #302b63 100%);
